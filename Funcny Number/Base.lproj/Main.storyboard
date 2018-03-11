@@ -18,21 +18,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ex9-lY-Rda">
+                            <navigationBar contentMode="scaleToFill" verticalCompressionResistancePriority="751" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ex9-lY-Rda">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Funny Number" id="NFr-d4-XvE">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="Nea-d1-HDJ"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="fastForward" id="OIj-n9-rFy"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="Nea-d1-HDJ">
+                                            <connections>
+                                                <action selector="decreaseButtonItem:" destination="BYZ-38-t0r" id="0vl-aA-M6A"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="fastForward" id="OIj-n9-rFy">
+                                            <connections>
+                                                <action selector="increaseButtonItem:" destination="BYZ-38-t0r" id="fCk-sA-zd1"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="bg5.png" translatesAutoresizingMaskIntoConstraints="NO" id="PaJ-LG-dPI">
-                                <rect key="frame" x="0.0" y="64" width="375" height="672"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhA-fa-zfu">
-                                <rect key="frame" x="48" y="137" width="279" height="375"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" fixedFrame="YES" image="bg5.png" translatesAutoresizingMaskIntoConstraints="NO" id="PaJ-LG-dPI">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhA-fa-zfu">
+                                <rect key="frame" x="0.0" y="182" width="375" height="303"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="303.5" id="8oM-wZ-5bc"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="250"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -42,20 +53,22 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="PaJ-LG-dPI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Gua-sN-n6E"/>
-                            <constraint firstItem="Ex9-lY-Rda" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="OdR-k7-AyO"/>
-                            <constraint firstItem="PaJ-LG-dPI" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="gcA-ZQ-jce"/>
-                            <constraint firstItem="PaJ-LG-dPI" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hg4-Qk-CAf"/>
-                            <constraint firstItem="Ex9-lY-Rda" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="icE-zl-gYx"/>
-                            <constraint firstItem="Ex9-lY-Rda" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kmM-hq-B8Q"/>
-                            <constraint firstItem="PaJ-LG-dPI" firstAttribute="top" secondItem="Ex9-lY-Rda" secondAttribute="bottom" id="tBa-78-Kgw"/>
+                            <constraint firstItem="Ex9-lY-Rda" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2eb-18-FTs"/>
+                            <constraint firstItem="PhA-fa-zfu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="B3s-Y9-K6J"/>
+                            <constraint firstItem="Ex9-lY-Rda" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Bq9-Qa-mbQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PhA-fa-zfu" secondAttribute="trailing" id="ZJG-Il-Xun"/>
+                            <constraint firstItem="PhA-fa-zfu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="d7R-fa-rOA"/>
+                            <constraint firstItem="PhA-fa-zfu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zv1-xi-bN1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="numberLabel" destination="PhA-fa-zfu" id="3pi-4D-6iO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="135.19999999999999" y="132.68365817091455"/>
         </scene>
     </scenes>
     <resources>
